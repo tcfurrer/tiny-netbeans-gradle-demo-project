@@ -1,0 +1,2 @@
+print "The purpose of this project is to provide a testcase for:"
+print "https://github.com/kelemen/netbeans-gradle-project/issues/405"

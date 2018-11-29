@@ -1,0 +1,2 @@
+rootProject.name = 'tiny-nonmodular-java11-project'
+include 'nonmodularSubproject1', 'nonmodularSubproject2'
