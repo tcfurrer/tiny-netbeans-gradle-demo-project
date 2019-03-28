@@ -1,2 +1,2 @@
-rootProject.name = 'tiny-nonmodular-java11-project'
+rootProject.name = 'tiny-netbeans-gradle-demo-project'
 include 'nonmodularSubproject1', 'nonmodularSubproject2'

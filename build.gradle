@@ -1,2 +1,45 @@
-println "The purpose of this project is to provide a testcase for:"
-println "  https://github.com/kelemen/netbeans-gradle-project/issues/405"
+println "----------------------------------------------------------------------"
+println "The purpose of this project is to provide a simple testcase for issues"
+println "with Netbeans and Gradle integration."
+println ""
+println "This is a multi-project build using Java 12. It does not use"
+println "Java modules. There is a single package with classes exising"
+println "in both subprojects, which is bad practice but legal."
+println ""
+println "The subprojects also use a non-standard paths to .java sources,"
+println "compiled .class outputs, etc. The source directory contains"
+println "resources which are interleaved together with the .java sources."
+println ""
+println "All of the aforementioned unusual characteristics are intended"
+println "to stress the capability of the Netbeans Gradle support to handle"
+println "unusual (but legal) projects. Real-world projects structured like"
+println "this one may want to take advantage of Netbeans, but may not be able"
+println "to afford a project restructure in order to migrate to a new IDE."
+println ""
+println "Original Author: Travis Furrer"
+println "----------------------------------------------------------------------"
+
+subprojects {
+    apply plugin: 'java'
+    sourceSets {
+        main {
+            java {
+                srcDirs = ['source']
+                include '**/*.java'
+                outputDir = file("$buildDir/classes")
+            }
+            resources {
+                srcDirs = ['source']
+                exclude '**/*.java'
+            }
+            output.resourcesDir = file("$buildDir/resources")
+        }
+    }
+    distsDirName='dist'
+    jar {
+        destinationDir = file("$projectDir/dist")
+    }
+    tasks.withType(JavaCompile) {
+        options.compilerArgs += ["-Xlint:all", "-Werror", "-Xdiags:verbose"]
+    }
+}

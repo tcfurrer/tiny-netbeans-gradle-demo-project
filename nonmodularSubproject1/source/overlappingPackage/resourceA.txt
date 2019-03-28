@@ -1,0 +1,1 @@
+This is a resource file interleaved in same directory with .java sources.

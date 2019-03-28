@@ -7,7 +7,7 @@
   <source-level>1.11</source-level>
   <script-platform>
     <spec-name>j2se</spec-name>
-    <spec-version>11</spec-version>
+    <spec-version>12</spec-version>
   </script-platform>
   <gradle-home>?INST=C:\Gradle\gradle-5.2</gradle-home>
   <extensions>
