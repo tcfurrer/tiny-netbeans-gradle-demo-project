@@ -21,6 +21,7 @@ println "----------------------------------------------------------------------"
 
 subprojects {
     apply plugin: 'java'
+    sourceCompatibility = '1.12'
     sourceSets {
         main {
             java {
